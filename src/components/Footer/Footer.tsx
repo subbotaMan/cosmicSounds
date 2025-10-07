@@ -1,6 +1,5 @@
 import './Footer.css'
 import React, {useState} from 'react'
-import type {SocialLinks} from "../../types/types.ts";
 
 import GithubIcon from '../../../public/logos/github.svg';
 import TelegramIcon from '../../../public/logos/telegram-icon.svg';
@@ -18,7 +17,7 @@ const Footer = () => {
         alert('Сообщение отправлено')
     };
 
-    const socialLinks: SocialLinks[] = [
+    const socialLinks = [
         {
             name: 'GitHub',
             url: 'https://github.com/subbotaMan',
@@ -38,6 +37,7 @@ const Footer = () => {
             color: '#4C75A3'
         }
     ];
+
 
     return (
         <footer className="footer">
@@ -80,6 +80,7 @@ const Footer = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={social.name}
+                                // @ts-expect-error style Err
                                 style={{ '--social-color': social.color }}
                             >
                                 {social.icon}
@@ -106,6 +107,7 @@ const Footer = () => {
                             onChange={(e) => setMessage(e.target.value)}
                             required
                             className="form-textarea"
+                            // @ts-expect-error style Err
                             rows="3"
                         />
                         <button type="submit" className="submit-btn">

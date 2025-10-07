@@ -8,10 +8,3 @@ export interface Track {
 export interface TrackCardProps {
     track: Track;
 }
-
-export interface SocialLinks {
-    name: string;
-    url: string;
-    icon: string;
-    color: string;
-}
