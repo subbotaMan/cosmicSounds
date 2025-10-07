@@ -1,0 +1,150 @@
+.music-player {
+    width: 300px;
+    height: 400px; /* Увеличил высоту для дополнительного заголовка */
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.music-player:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.album-cover {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 15px;
+}
+
+/* Стили для названия исполнителя */
+.artist-title {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    margin: 5px 0;
+    color: #FFFFFF;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(90deg, rgba(231, 76, 60, 0.8) 0%, rgba(192, 57, 43, 0.8) 100%);
+    padding: 10px 15px;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+
+.artist-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.artist-title:hover::before {
+    left: 100%;
+}
+
+/* Стили для названия трека */
+.song-title {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    margin: 5px 0;
+    color: #DCDCDC;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(90deg, rgba(26, 188, 156, 0.8) 0%, rgba(52, 152, 219, 0.8) 100%);
+    padding: 10px 15px;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 0.95em;
+    letter-spacing: 1px;
+}
+
+.song-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.song-title:hover::before {
+    left: 100%;
+}
+
+.audio-container {
+    width: 100%;
+    background: #2c3e50;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.audio-player {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Агрессивное переопределение стилей аудиоплеера */
+.audio-player audio {
+    width: 100%;
+    height: 40px;
+    border-radius: 0 !important;
+    background: #2c3e50 !important;
+    border: none !important;
+    outline: none !important;
+}
+
+/* Для Webkit браузеров (Chrome, Safari) */
+.audio-player audio::-webkit-media-controls-panel {
+    background: #2c3e50 !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.audio-player audio::-webkit-media-controls-enclosure {
+    background: #2c3e50 !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* Для Firefox */
+.audio-player audio::-moz-range-track {
+    background: #2c3e50 !important;
+    border-radius: 0 !important;
+}
+
+.audio-player audio {
+    background: #2c3e50 !important;
+}
