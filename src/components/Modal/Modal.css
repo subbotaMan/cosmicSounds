@@ -1,0 +1,192 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #0c0c2e 0%, #1a1a4a 50%, #2d2d7a 100%);
+    border: 1px solid rgba(100, 100, 255, 0.3);
+    border-radius: 20px;
+    padding: 0;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 0 50px rgba(100, 100, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: slideUp 0.3s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(100, 100, 255, 0.6) 50%,
+    transparent 100%);
+}
+
+.modal-header {
+    padding: 20px 25px 15px;
+    border-bottom: 1px solid rgba(100, 100, 255, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    color: #fff;
+    font-size: 1.4em;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(100, 100, 255, 0.5);
+    background: linear-gradient(45deg, #8a8aff, #5353c6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.modal-close {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(100, 100, 255, 0.3);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #8a8aff;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+    box-shadow: 0 0 15px rgba(100, 100, 255, 0.5);
+}
+
+.close-icon {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 30px 25px;
+}
+
+.message-container {
+    text-align: center;
+}
+
+.cosmic-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.modal-message {
+    color: #e0e0ff;
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin: 0;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.modal-footer {
+    padding: 15px 25px 25px;
+    text-align: center;
+}
+
+.cosmic-button {
+    background: linear-gradient(45deg, #5353c6, #8a8aff);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(100, 100, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.cosmic-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(100, 100, 255, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.cosmic-button:active {
+    transform: translateY(0);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Звездный эффект */
+.modal-content::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(100, 100, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px, 30px 30px;
+    animation: twinkle 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes twinkle {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

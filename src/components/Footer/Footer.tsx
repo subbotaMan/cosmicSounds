@@ -1,43 +1,11 @@
 import './Footer.css'
-import React, {useState} from 'react'
+import React from 'react'
+import {socialLinks} from "../../data/data.tsx";
+import type {socialLinksType} from "../../types/types.ts";
 
-import GithubIcon from '../../../public/logos/github.svg';
-import TelegramIcon from '../../../public/logos/telegram-icon.svg';
-import VkIcon from '../../../public/logos/vk-icon.svg';
+import Feedback from "../Feedback/Feedback.tsx";
 
-const Footer = () => {
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        console.log({email, message})
-        setEmail('')
-        setMessage('')
-        alert('Сообщение отправлено')
-    };
-
-    const socialLinks = [
-        {
-            name: 'GitHub',
-            url: 'https://github.com/subbotaMan',
-            icon: <img src={GithubIcon} alt="GitHub" className="social-svg-icon" />,
-            color: '#333'
-        },
-        {
-            name: 'Telegram',
-            url: 'https://t.me/subbotaMan',
-            icon: <img src={TelegramIcon} alt="Telegram" className="social-svg-icon" />,
-            color: '#0088cc'
-        },
-        {
-            name: 'VK',
-            url: 'https://vk.com/subbotaMan',
-            icon: <img src={VkIcon} alt="VK" className="social-svg-icon" />,
-            color: '#4C75A3'
-        }
-    ];
-
+const Footer: React.FC = () => {
 
     return (
         <footer className="footer">
@@ -72,7 +40,7 @@ const Footer = () => {
                     </div>
 
                     <div className="social-links">
-                        {socialLinks.map((social) => (
+                        {socialLinks.map((social: socialLinksType) => (
                             <a
                                 key={social.name}
                                 href={social.url}
@@ -81,7 +49,7 @@ const Footer = () => {
                                 rel="noopener noreferrer"
                                 aria-label={social.name}
                                 // @ts-expect-error style Err
-                                style={{ '--social-color': social.color }}
+                                style={{'--social-color': social.color}}
                             >
                                 {social.icon}
                             </a>
@@ -90,31 +58,7 @@ const Footer = () => {
                 </div>
 
                 {/* Правая часть - форма обратной связи */}
-                <div className="footer-section">
-                    <h4>Обратная связь</h4>
-                    <form className="feedback-form" onSubmit={handleSubmit}>
-                        <input
-                            type="email"
-                            placeholder="Ваш email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                            className="form-input"
-                        />
-                        <textarea
-                            placeholder="Ваше сообщение..."
-                            value={message}
-                            onChange={(e) => setMessage(e.target.value)}
-                            required
-                            className="form-textarea"
-                            // @ts-expect-error style Err
-                            rows="3"
-                        />
-                        <button type="submit" className="submit-btn">
-                            Отправить
-                        </button>
-                    </form>
-                </div>
+                <Feedback/>
             </div>
         </footer>
     );
