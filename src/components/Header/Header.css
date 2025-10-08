@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@552&display=swap');
+
+.header {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.95) 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(100, 100, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    font-family: "Alan Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 550;
+    font-style: normal;
+}
+
+/* Принудительное наследование шрифта для всех элементов внутри header */
+.header * {
+    font-family: inherit;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+/* Логотип */
+.logo {
+    position: relative;
+    z-index: 1001;
+    cursor: pointer;
+}
+
+.logo-text {
+    color: #87CEEB;
+    font-size: 1.8em;
+    font-weight: 600;
+    text-shadow: 0 0 15px rgba(135, 206, 235, 0.6);
+    background: linear-gradient(45deg, #87CEEB, #00BFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.logo:hover .logo-text {
+    text-shadow: 0 0 25px rgba(135, 206, 235, 0.9);
+}
+
+.logo-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(135, 206, 235, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.logo:hover .logo-glow {
+    opacity: 1;
+}
+
+/* Десктопная навигация */
+.desktop-nav {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+}
+
+.nav-item {
+    position: relative;
+}
+
+/* ОБНОВЛЕННЫЕ СТИЛИ КНОПОК БЕЗ ЗАКРУГЛЕНИЙ */
+.nav-button {
+    background: linear-gradient(135deg, rgba(100, 100, 255, 0.1) 0%, rgba(135, 206, 235, 0.05) 100%);
+    border: none;
+    color: #e0e0ff;
+    padding: 14px 28px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow:
+            0 2px 10px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    border-radius: 0;
+}
+
+.nav-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent);
+    transition: left 0.6s ease;
+}
+
+.nav-button:hover::before {
+    left: 100%;
+}
+
+.nav-button:hover {
+    background: linear-gradient(135deg, rgba(100, 100, 255, 0.2) 0%, rgba(135, 206, 235, 0.15) 100%);
+    box-shadow:
+            0 4px 20px rgba(100, 100, 255, 0.3),
+            0 0 25px rgba(135, 206, 235, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+.nav-button:active {
+    transform: translateY(0);
+}
+
+/* Особый стиль для кнопки Категории */
+.categories-item .nav-button {
+    background: linear-gradient(135deg, rgba(135, 206, 235, 0.15) 0%, rgba(100, 100, 255, 0.1) 100%);
+}
+
+.categories-item .nav-button:hover {
+    background: linear-gradient(135deg, rgba(135, 206, 235, 0.25) 0%, rgba(100, 100, 255, 0.2) 100%);
+    box-shadow:
+            0 4px 20px rgba(135, 206, 235, 0.3),
+            0 0 30px rgba(135, 206, 235, 0.25);
+}
+
+/* Стрелка для выпадающего меню */
+.dropdown-arrow {
+    font-size: 0.7em;
+    transition: transform 0.4s ease;
+    margin-left: 5px;
+    color: #87CEEB;
+}
+
+.categories-item:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* ВЫПАДАЮЩЕЕ МЕНЮ С УЛУЧШЕННОЙ ДОСТУПНОСТЬЮ */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0; /* Убрали отступ между кнопкой и меню */
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.98) 0%, rgba(22, 33, 62, 0.98) 100%);
+    border: none;
+    border-radius: 0 0 15px 15px;
+    padding: 15px;
+    min-width: 280px;
+    backdrop-filter: blur(15px);
+    box-shadow:
+            0 15px 40px rgba(0, 0, 0, 0.5),
+            0 0 30px rgba(135, 206, 235, 0.15);
+    animation: dropdownAppear 0.3s ease;
+    z-index: 1000;
+}
+
+/* Псевдо-элемент для соединения кнопки и меню */
+.categories-item::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 10px; /* Невидимая область для плавного перехода */
+    background: transparent;
+    z-index: 999;
+}
+
+/* Улучшенные стили для dropdown items */
+.dropdown-item {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #e0e0ff;
+    padding: 12px 16px;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+    margin-bottom: 5px;
+    position: relative;
+    overflow: hidden;
+    animation: slideInRight 0.3s ease both;
+}
+
+.dropdown-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(180deg, #87CEEB, #5353c6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background: rgba(135, 206, 235, 0.1);
+    color: #87CEEB;
+    transform: translateX(5px);
+}
+
+.dropdown-item:hover::before {
+    opacity: 1;
+}
+
+/* Мобильное меню */
+.mobile-menu-button {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-button {
+        display: flex;
+    }
+}
+
+.mobile-menu-button span {
+    width: 25px;
+    height: 3px;
+    background: #87CEEB;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-button:hover span {
+    background: #00BFFF;
+}
+
+/* Мобильная навигация */
+.mobile-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.98) 0%, rgba(22, 33, 62, 0.98) 100%);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(100, 100, 255, 0.1);
+    padding: 20px;
+    animation: slideDown 0.3s ease;
+}
+
+.mobile-categories-header {
+    color: #87CEEB;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.mobile-categories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.mobile-category-item {
+    background: rgba(100, 100, 255, 0.05);
+    border: none;
+    border-radius: 8px;
+    color: #e0e0ff;
+    padding: 14px 16px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+}
+
+.mobile-category-item:hover {
+    background: rgba(135, 206, 235, 0.1);
+    transform: translateX(5px);
+    color: #87CEEB;
+}
+
+.mobile-nav-button {
+    width: 100%;
+    background: linear-gradient(135deg, rgba(100, 100, 255, 0.1) 0%, rgba(135, 206, 235, 0.05) 100%);
+    border: none;
+    border-radius: 0;
+    color: #e0e0ff;
+    padding: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1em;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+.mobile-nav-button:hover {
+    background: linear-gradient(135deg, rgba(100, 100, 255, 0.2) 0%, rgba(135, 206, 235, 0.15) 100%);
+    transform: translateY(-2px);
+}
+
+/* ОТРАЖЕНИЕ КОНТЕНТА НА HEADER */
+.header-content-reflection {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to bottom,
+    rgba(135, 206, 235, 0.1) 0%,
+    transparent 100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.categories-item:hover .header-content-reflection {
+    opacity: 1;
+}
+
+/* Анимации */
+@keyframes dropdownAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .nav-button {
+        padding: 12px 24px;
+        font-size: 0.95em;
+    }
+
+    .desktop-nav {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 868px) {
+    .desktop-nav {
+        gap: 6px;
+    }
+
+    .nav-button {
+        padding: 11px 20px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        height: 70px;
+    }
+
+    .logo-text {
+        font-size: 1.5em;
+    }
+}

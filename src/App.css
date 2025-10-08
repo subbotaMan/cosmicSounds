@@ -31,24 +31,27 @@ li {
     list-style: none;
 }
 
-.mainTitle {
-    color: #87CEEB;
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    text-align: center;
-    transition: color 0.4s;
-}
-
-.mainTitle:hover {
-    color: #00BFFF;
-    cursor: pointer;
-}
-
 .tracks-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    justify-items: center;
 }
 
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .tracks-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tracks-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+}
