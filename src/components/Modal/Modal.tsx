@@ -1,6 +1,7 @@
 import React from "react";
 import "./Modal.css";
 import type {ModalProps} from "../../types/types.ts";
+import rocketLogo from "../../../public/logos/rocket.png"
 
 
 const Modal: React.FC<ModalProps> = ({isOpen, onClose, title, message}) => {
@@ -18,7 +19,9 @@ const Modal: React.FC<ModalProps> = ({isOpen, onClose, title, message}) => {
 
                 <div className="modal-body">
                     <div className="message-container">
-                        <div className="cosmic-icon">🚀</div>
+                        <div className="cosmic-icon">
+                            <img src={rocketLogo} alt="rocket logo" width={70} height={70} />
+                        </div>
                         <p className="modal-message">{message}</p>
                     </div>
                 </div>

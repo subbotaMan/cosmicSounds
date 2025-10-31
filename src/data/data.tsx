@@ -15,6 +15,10 @@ export const tracksData: Track[] = [
     {artist: 'second song', songName: 'second song Name', path: '../public/tracks/2.mp3'},
     {artist: 'second song', songName: 'three song Name', path: '../public/tracks/2.mp3'},
     {artist: 'second song', songName: 'four song Name', path: '../public/tracks/2.mp3'},
+    {artist: 'second song', songName: 'four song Name', path: '../public/tracks/2.mp3'},
+    {artist: 'second song', songName: 'four song Name', path: '../public/tracks/2.mp3'},
+    {artist: 'second song', songName: 'four song Name', path: '../public/tracks/2.mp3'},
+    {artist: 'second song', songName: 'four song Name', path: '../public/tracks/2.mp3'},
 ]
 
 export const socialLinks: socialLinksType[] = [

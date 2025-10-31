@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
                         в мир космических мелодий.
                     </p>
                     <div className="creator-info">
-                        <a href="https://github.com/subbotaMan">Создатель: subbotaMan</a>
+                        <a href="https://github.com/subbotaMan" target='_blank'>Создатель: subbotaMan</a>
                         <p>© 2025 Cosmic Sounds</p>
                     </div>
                 </div>

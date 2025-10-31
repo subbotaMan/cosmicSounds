@@ -10,7 +10,6 @@ const Feedback: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log({email, message})
         setEmail('')
         setMessage('')
         setIsModalOpen(true)

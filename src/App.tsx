@@ -5,6 +5,7 @@ import type {Track} from "./types/types.ts";
 import Header from "./components/Header/Header.tsx";
 import TrackCard from "./components/TrackCard/TrackCard.tsx";
 import Footer from "./components/Footer/Footer.tsx";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop.tsx";
 
 function App() {
     return (
@@ -19,7 +20,7 @@ function App() {
                     />
                 ))}
             </div>
-
+            <ScrollToTop />
             <Footer/>
         </>
     )
