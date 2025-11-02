@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './Header.css';
 
 const Header: React.FC = () => {
@@ -52,8 +52,8 @@ const Header: React.FC = () => {
                         )}
                     </div>
 
-                    <button className="nav-button">О проекте</button>
-                    <button className="nav-button">Пожелания</button>
+                    <Link to="/about" className="nav-button">О проекте</Link>
+                    <Link to="/feedback" className="nav-button">Пожелания</Link>
                 </nav>
 
                 {/* Мобильное меню */}
